@@ -1,0 +1,128 @@
+
+<div class="container" style="width:800px; margin:0 auto;">
+    Note : Enter Cities like Amsterdam , London , Tokyo
+    <table border="1">
+        <tr>
+            <th>From</th>
+
+            <th>To</th>
+
+            <th>Date</th>
+
+            <th>Operation</th>
+        </tr>
+        <tr>
+            <td>
+                <input [value]="searchFrom" #From ngxTypeahead [taList]="myLocalDataList" [taItemTpl]="myTemp" (taSelected)="selectedTempStaticFrom($event)">
+
+                <ng-template #myTemp let-item>
+
+                    <div class="item-name">
+
+                        {{item.result.Name}}
+
+                    </div>
+
+                    <div class="item-desc">
+
+                        {{item.result.Code}}
+
+                    </div>
+
+                    <div class="item-desc">
+
+                        {{item.result.Country}}
+
+                    </div>
+
+                    <div class="item-desc">
+
+                        {{item.result.Latitude}}
+
+                    </div>
+
+                    <div class="item-desc">
+
+                        {{item.result.Longitude}}
+
+                    </div>
+
+                </ng-template>
+
+            </td>
+
+            <td>
+
+                <input [value]="searchTo" #To ngxTypeahead [taList]="myLocalDataList" [taItemTpl]="myTemp" (taSelected)="selectedTempStaticTo($event)">
+
+            </td>
+
+            <td>
+
+                <input #travelDate id="dateOfTravel" name="dateOfTravel" type="text"  bsDatepicker   [minDate]="minDate" [bsConfig]="datepickerConfig" />
+
+            </td>
+
+            <td>
+
+                <button class="add-btn" (click)="onPush(travelDate.value)"> Push</button>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div id="TravellerDisplay" style="width:800px; margin:0 auto">
+
+    <table class="table table-striped table-bordered">
+
+        <thead>
+
+            <tr>
+
+                <th>From</th>
+
+                <th>To</th>
+
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let field of paxDetails let i = index">
+
+                <td>
+
+                    <input readonly class="form-control" type="text" value="{{field[0]}}" />
+
+                </td>
+
+                <td>
+
+                    <input readonly class="form-control" type="text" value="{{field[1]}}" />
+
+                </td>
+
+                <td>
+
+                    <input readonly class="form-control" type="text" value="{{field[2]}}" />
+
+                </td>
+
+                <!-- <td>
+
+                 <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+
+             </td> -->
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

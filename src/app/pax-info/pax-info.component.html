@@ -1,0 +1,71 @@
+
+  <div id="TravellerInfo" style="width:800px; margin:0 auto" >
+    Note : Enter Cities like Amsterdam , London , Tokyo
+    <table border="1">
+     <tr>
+       <th>From</th>
+       <th>To</th>
+       <th>Date</th>
+       <th> Operation </th>
+     </tr>
+     <tr>
+       <td> 
+         <!-- <input type="text" name="travelFrom" (focusout) = "passValue($event)"/>  -->
+         <!-- <ng2-completer [(ngModel)] = 'travelFrom ' #From  [datasource]="dataServiceFrom" [minSearchLength]="3" (selected)="onFromSelected($event)"></ng2-completer> -->
+         <ng2-completer #From  [(ngModel)]="travelFrom" [datasource]="dataServiceFrom" [minSearchLength]="3"></ng2-completer> 
+         
+       </td> 
+       <td> 
+        <!-- <input  type="text" name="travelTo"  (focusout) = "passValue($event)"/>      -->
+        <ng2-completer  [(ngModel)] = 'travelTo' #To  [datasource]="dataServiceTo" [minSearchLength]="3"></ng2-completer>
+      </td>
+      <td> 
+        <input  [(ngModel)] = 'tDate' #TravelDate id="travelDate" name="travelDate" placement = 'right' 
+          type="text" bsDatepicker [bsConfig] = "datepickerConfig"  class="form-control"  
+          />
+      </td>
+       <td>
+        <!-- {{From}} {{To}} ,{{Date}} -->
+        <button (click)="onPush(From.value , To.value, TravelDate.value)">
+         Push
+        </button>
+        
+       </td>
+       
+     </tr>
+   </table>
+    
+  
+   </div>
+   
+   <div id="TravellerDisplay" style="width:800px; margin:0 auto" >
+   <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let field of paxDetails let i = index">
+            <td>
+                <input readonly class="form-control" type="text" value="{{field[0]}}" />
+            
+            </td>
+            <td>
+                <input  readonly class="form-control" type="text" value="{{field[1]}}" />
+            </td>
+            <td>
+                <input readonly class="form-control" type="text" value="{{field[2]}}" />
+            </td>
+            <!-- <td>
+                <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+            </td> -->
+        </tr>
+       
+    </tbody>
+</table>
+   </div>
+

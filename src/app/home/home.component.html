@@ -1,0 +1,91 @@
+<div style="width:800px; margin:0 auto" >
+    <h2>Traveller Preferences</h2>
+    <a href="" style="display: none;"> Edit</a>
+   
+    <div id="TravellerPreferences" width="500px" style="display: block;" >
+     <table border="1">
+      <tr>
+        <th>Who's travelling</th>
+        <th>What Travel Class</th>
+        <th>What Currency</th>
+      </tr>
+      <tr>
+        <td> 
+          <input type="text" readonly value="{{AdultCount}} Adult {{ChildCount}} Child {{InfantCount}} Infant"/> 
+          
+         <input type="checkbox" [checked]="saveUsername" (change)="saveUsername = !saveUsername"/>
+    
+         <div *ngIf="saveUsername">
+         
+           <div id="bubbleBoxHeading" tabindex="11"  aria-label=" Please tell us who all will be travelling">
+               <h3>
+                  Who's travelling
+               </h3>
+           </div>
+           <table>
+             <tr>
+               <td>Adults </td>
+               <td> <button (click)="onDecrClick(AdultCt)">-</button></td>
+               <td> <input type="text"  name = "Adult" #AdultCt  value={{AdultCount}}  readonly/> </td>
+               <td><button (click)="onIncrClick(AdultCt)">+</button> </td>
+             </tr>
+             <tr>
+               <td>Children </td>
+               <td> <button (click)="onDecrClick(ChildCt)">-</button></td>
+               <td><input  type="text"   name = "Children" #ChildCt  value={{ChildCount}} readonly/> </td>
+               <td><button (click)="onIncrClick(ChildCt)">+</button> </td>
+             </tr>
+             <tr>
+               <td>Infants With Seat </td>
+               <td> <button (click)="onDecrClick(InfantCt)">-</button></td>
+               <td><input  type="text" name="Infant"  #InfantCt  value={{InfantCount}} readonly/> </td>
+               <td><button (click)="onIncrClick(InfantCt)">+</button> </td>
+   
+             </tr>
+             <tr>
+               <td colspan="4"> <button (click)="onConfirm()">Confirm</button> </td>
+             </tr>
+           </table>
+       </div>
+         
+        </td>
+        <td>
+         <button [style.background-color]="toggleEconomy ? 'orange' : 'white'" (click)="enableDisableRuleForEconomy()">
+         Economy
+         </button>
+         <button [style.background-color]="toggleBusiness ? 'orange' : 'white'" (click)="enableDisableRuleForBusiness()">
+         Business
+         </button>
+        </td>
+        <td>
+         <button [style.background-color]="toggleUSD ? 'orange' : 'white'" (click)="enableDisableRuleForUSD()">
+           USD
+           </button>
+         <button [style.background-color]="toggleEUR ? 'orange' : 'white'" (click)="enableDisableRuleForEUR()">
+           EUR
+         </button>
+        </td>
+      </tr>
+    </table>
+     
+   
+    </div>
+      
+   <br/>
+   <br/>
+   
+   <!-- From :  <input id="from"  name="from" type="text" bsDatepicker />  &nbsp; &nbsp;
+   To :<input id="To" name="To" type="text"/>  -->
+   <br/>
+   <div class="form-group col-md-5">
+     <label for="dateOfBirth">Date of Birth</label>
+     <input id="dateOfBirth" name="dateOfBirth" placement = 'right'
+             type="text" bsDatepicker [bsConfig] = "datepickerConfig"  class="form-control" />
+     <br/>
+     
+   </div>
+   
+   <br/>
+   <br/>
+   <br/>
+   </div>

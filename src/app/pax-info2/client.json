@@ -1,0 +1,42 @@
+[
+    {
+      "Name" : "Amsterdam", 
+
+      "Code" : "AMS",
+
+      "Country" : "Neitherland ",
+
+      "Latitude" : "5500",
+
+      "Longitude" : "2545"
+
+    }, 
+
+    {
+     "Name" : "London", 
+
+      "Code" : "LON",
+
+      "Country" : "United Kingdoms",
+
+      "Latitude" : "5500",
+
+      "Longitude" : "2545"
+
+    },
+
+    {
+
+      "Name" : "Tokyo", 
+
+      "Code" : "TYO",
+
+      "Country"  : "Japan",
+
+      "Latitude" : "5425",
+
+      "Longitude" : "6589"
+
+    } 
+
+  ]
