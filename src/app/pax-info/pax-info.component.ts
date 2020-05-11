@@ -23,8 +23,8 @@ export class PaxInfoComponent  implements OnInit {
     tDate : string;
 
     AirportData: any[];
-   protected dataServiceFrom: CompleterData;
-   protected dataServiceTo : CompleterData;
+    dataServiceFrom: CompleterData;
+    dataServiceTo : CompleterData;
 
 
    constructor(private completerService: CompleterService){
